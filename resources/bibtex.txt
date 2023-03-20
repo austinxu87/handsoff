@@ -1,6 +1,6 @@
-@inproceedings{author20XXtitle,
-  title={Please cite me},
-  author={Author, First and Author, Second and Author, Third},
-  booktitle={Conference},
-  year={20XX}
+@article{xu2022handsoff,
+  title={HandsOff: Labeled Dataset Generation With No Additional Human Annotations},
+  author={Xu, Austin and Vasileva, Mariya I and Dave, Achal and Seshadri, Arjun},
+  journal={arXiv preprint arXiv:2212.12645},
+  year={2022}
 }

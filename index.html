@@ -138,23 +138,28 @@
 <body>
 	<br>
 	<center>
-		<span style="font-size:36px">Creative and Descriptive Paper Title</span>
-		<table align=center width=600px>
-			<table align=center width=600px>
+		<span style="font-size:36px">HandsOff: Labeled Dataset Generation with No Additional Human Annotations</span>
+		<table align=center width=1000px>
+			<table align=center width=800px>
 				<tr>
-					<td align=center width=100px>
+					<td align=center width=200px>
 						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">First Author</a></span>
+							<span style="font-size:24px"><a href="https://austinxu87.github.io/">Austin Xu</a></span>
 						</center>
 					</td>
-					<td align=center width=100px>
+					<td align=center width=200px>
 						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Second Author</a></span>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=I7LbGLUAAAAJ&hl=en">Mariya Vasileva</a></span>
 						</center>
 					</td>
-					<td align=center width=100px>
+					<td align=center width=200px>
 						<center>
-							<span style="font-size:24px"><a href="https://en.wikipedia.org/wiki/James_J._Gibson">Third Author</a></span>
+							<span style="font-size:24px"><a href="http://www.achaldave.com/">Achal Dave</a></span>
+						</center>
+					</td>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href="https://arjunsesh.github.io/">Arjun Seshadri</a></span>
 						</center>
 					</td>
 				</tr>
@@ -163,12 +168,12 @@
 				<tr>
 					<td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href=''>[Paper]</a></span>
+							<span style="font-size:20px"><a href='https://arxiv.org/pdf/2212.12645.pdf'>[Paper]</a></span>
 						</center>
 					</td>
 					<td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href='https://github.com/richzhang/webpage-template'>[GitHub]</a></span><br>
+							<span style="font-size:20px"><a href='https://github.com/austinxu87/handsoff/'>[Github]</a></span><br>
 						</center>
 					</td>
 				</tr>
@@ -177,22 +182,28 @@
 	</center>
 
 	<center>
-		<table align=center width=850px>
+		<table align=center width=850>
 			<tr>
 				<td width=260px>
 					<center>
-						<img class="round" style="width:500px" src="./resources/teaser.png"/>
+						<img class="round" style="width:800px" src="./resources/framework.jpg"/>
 					</center>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<br>
+					This paper presents the HandsOff framework, which is capable of producing synthetic images with corresponding <i>pixel-level labels</i> without requiring additional human annotations. By unifying the fields of synthetic dataset generation and GAN inversion, HandsOff utilizes a small number of <i>real</i> labeled images and exploits the rich latent representations of GANs to train a label generator. Paired with a GAN generator, we now have access to infinitely many image-label pairs!
+				</td>
+			</tr>
 		</table>
-		<table align=center width=850px>
+		<!-- <table align=center width=850px>
 			<tr>
 				<td>
 					This was a template originally made for <a href="http://richzhang.github.io/colorization/">Colorful Image Colorization</a>. The code can be found in this <a href="https://github.com/richzhang/webpage-template">repository</a>.
 				</td>
 			</tr>
-		</table>
+		</table> -->
 	</center>
 
 	<hr>
@@ -201,35 +212,41 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				This is my abstract.
+				Recent work leverages the expressive power of generative adversarial networks (GANs) to generate labeled synthetic datasets. These dataset generation methods often require new annotations of synthetic images, which forces practitioners to seek out annotators, curate a set of synthetic images, and ensure the quality of generated labels. We introduce the HandsOff framework, a technique capable of producing an unlimited number of synthetic images and corresponding labels after being trained on less than 50 pre-existing labeled images. Our framework avoids the practical drawbacks of prior work by unifying the field of GAN inversion with dataset generation. We generate datasets with rich pixel-wise labels in multiple challenging domains such as faces, cars, full-body human poses, and urban driving scenes. Our method achieves state-of-the-art performance in semantic segmentation, keypoint detection, and depth estimation compared to prior dataset generation approaches and transfer learning baselines. We additionally showcase its ability to address broad challenges in model development which stem from fixed, hand-annotated datasets, such as the long-tail problem in semantic segmentation.
 			</td>
 		</tr>
 	</table>
 	<br>
 
 	<hr>
-	<center><h1>Talk</h1></center>
-	<p align="center">
-		<iframe width="660" height="395" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
-	</p>
-
+	<center><h1>Generated synthetic datasets</h1></center>
 	<table align=center width=800px>
 		<br>
 		<tr>
-			<center>
-				<span style="font-size:28px"><a href=''>[Slides]</a>
-				</span>
-			</center>
+			<td width=260px>
+				<center>
+					<img class="round" style="width:800px" src="./resources/vis.jpg"/>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<br>
+				Examples of synthetically generated images and corresponding labels (segmentation masks, keypoints, depth maps) across four uniquely challenging domains.
+			</td>
 		</tr>
 	</table>
 	<hr>
 
-	<center><h1>Code</h1></center>
+	<center><h1>Long-tail improvement</h1></center>
 
-	<table align=center width=420px>
+	<table align=center width=800px>
 		<center>
 			<tr>
 				<td>
+					A key feature unlocked by HandsOff is the ability to control the composition of the training set. We use this control to improve long-tail part segmentation.
+					As we increase the number of images in the training set with the long-tail part, not only do our generated labels improve, the label generator's uncertainty
+					in assigning long-tail labels decreases.
 				</td>
 			</tr>
 		</center>
@@ -243,32 +260,16 @@
 			</td>
 		</tr>
 	</table>
-	<table align=center width=850px>
-		<center>
-			<tr>
-				<td>
-					Short description if wanted
-				</td>
-			</tr>
-		</center>
-	</table>
-	<table align=center width=800px>
-		<br>
-		<tr><center>
-			<span style="font-size:28px">&nbsp;<a href='https://github.com/richzhang/webpage-template'>[GitHub]</a>
-			</center>
-		</span>
-	</table>
 	<br>
 	<hr>
-	<table align=center width=450px>
+	<table align=center width=800px>
 		<center><h1>Paper and Supplementary Material</h1></center>
 		<tr>
 			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td><span style="font-size:14pt">F. Author, S. Author, T. Author.<br>
-				<b>Creative and Descriptive Paper Title.</b><br>
-				In Conference, 20XX.<br>
-				(hosted on <a href="">ArXiv</a>)<br>
+			<td><span style="font-size:14pt">Austin Xu, Mariya I. Vasileva, Achal Dave, Arjun Seshadri<br>
+				<b>HandsOff: Labeled Dataset Generation with No Additional Human Annotations.</b><br>
+				To appear in CVPR 2023.<br>
+				(hosted on <a href="https://arxiv.org/pdf/2212.12645.pdf">ArXiv</a>)<br>
 				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
 				<span style="font-size:4pt"><a href=""><br></a>
 				</span>
@@ -283,6 +284,16 @@
 				<a href="./resources/bibtex.txt">[Bibtex]</a>
 			</center></td>
 		</tr>
+		<tr>
+			<td>
+		 		 <font size="-1"><pre><code>@article{xu2022handsoff,
+	title={HandsOff: Labeled Dataset Generation With No Additional Human Annotations},
+	author={Xu, Austin and Vasileva, Mariya I and Dave, Achal and Seshadri, Arjun},
+	journal={arXiv preprint arXiv:2212.12645},
+	year={2022}
+}
+		 </code></pre></font>
+		</td>
 	</table>
 
 	<hr>
