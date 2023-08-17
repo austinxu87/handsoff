@@ -1,0 +1,42 @@
+{
+    "exp_dir": "label_generators/cars_segmentation",
+    "batch_size": 64,
+    "domain": "cars",
+    "task": "segmentation",
+    "debug": false,
+    "classifier": [
+        512,
+        256
+    ],
+    "dim": [
+        384,
+        512,
+        6016
+    ],
+    "deeplab_res": 512,
+    "number_class": 10,
+    "testing_data_number_class": 10,
+    "merge_classes": true,
+    "max_training": 50,
+    "stylegan_ver": "2",
+    "uncertainty_portion": 0.1,
+    "annotation_data_from_w": true,
+    "annotation_mask_path": "./data/cars/train",
+    "testing_path": "./data/cars/test",
+    "stylegan_checkpoint": "./stylegan2-checkpoints/stylegan2_networks_stylegan2-car-config-f.pt",
+    "ensemble_size": 10,
+    "upsample_mode": "bilinear",
+    "optimized_latent_path": {
+        "train": "restyle_output/cars/latents_optimized.npy",
+        "test": ""
+    },
+    "same_view_code": false,
+    "truncation": false,
+    "normalize": true,
+    "n_latent": 16,
+    "use_w": false,
+    "loss_dict": {
+        "p_loss": 10,
+        "mse_loss": 1
+    }
+}

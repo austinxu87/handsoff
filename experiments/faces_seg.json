@@ -1,0 +1,41 @@
+{
+    "exp_dir": "label_generators/faces_segmentation",
+    "batch_size": 64,
+    "domain": "face",
+    "task": "segmentation",
+    "debug": false,
+    "classifier": [
+        256,
+        32
+    ],
+    "dim": [
+        512,
+        512,
+        6080
+    ],
+    "deeplab_res": 512,
+    "number_class": 19,
+    "testing_data_number_class": 8,
+    "merge_classes": true,
+    "max_training": 50,
+    "stylegan_ver": "2",
+    "uncertainty_portion": 0.1,
+    "annotation_data_from_w": true,
+    "annotation_mask_path": "./data/faces/train",
+    "testing_path": "./data/faces/test",
+    "stylegan_checkpoint": "./stylegan2-checkpoints/stylegan2-ffhq-config-f.pt",
+    "ensemble_size": 10,
+    "upsample_mode": "bilinear",
+    "optimized_latent_path": {
+        "train": "restyle_output/faces/latents_optimized.npy",
+        "test": ""
+    },
+    "truncation": false,
+    "normalize": true,
+    "n_latent": 18,
+    "use_w": false,
+    "loss_dict": {
+        "p_loss": 10,
+        "mse_loss": 1
+    }
+}
