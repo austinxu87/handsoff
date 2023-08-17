@@ -27,7 +27,21 @@ conda activate handsoff_env
 - Full-body humans: We train and evaluate on a preprocessed [DeepFashion-MultiModal](https://github.com/yumingj/DeepFashion-MultiModal)
 - Cityscapes: We train and evaluate on [Cityscapes](https://www.cityscapes-dataset.com)
 
-Splits coming soon!
+## Data splits
+- Faces:
+    - Because of the CelebAMask-HQ dataset agreement, we cannot release our image splits directly. 
+        - Download the image and annotation files from CelebAMask-HQ.
+        - Utilize [g_mask.py](https://github.com/switchablenorms/CelebAMask-HQ/blob/master/face_parsing/Data_preprocessing/g_mask.py) provided by CelebAMask-HQ to construct segmentation masks.
+        - Convert the png output of `g_mask.py` to a numpy array.
+    - We map the original image numbers of CelebAMask-HQ to new image numbers based on the following mapping: [celeba_mapping](https://drive.google.com/file/d/1860THKCuktStkuCP_q71wx5e5_jlBu7d/view?usp=sharing). This `json` file has two keys:
+        - `train`: a dict where the keys are the original image numbers in CelebAMask-HQ, and values are the image numbers that we use. These are the 50 images (and corresponding labels) we use to train HandsOff
+        - `test`: a dict of the same structure as above.
+        - Example: `celeba_mapping['train'][16569] : 0` means that 
+            - `16569.jpg` in CelebAMask-HQ is `0.jpg` in the HandsOff train set
+            - The segmentation mask corresponding to `16569.jpg` in CelebAMask-HQ is `image_mask0.npy` in the HandsOff train set
+        - Example: `celeba_mapping['test][18698] : 29949` means that 
+            - `18698.jpg` in CelebAMask-HQ is `29949.jpg` in the HandsOff test set
+            - The segmentation mask corresponding to `18698.jpg` in CelebAMask-HQ is `image_mask29949.npy` in the HandsOff train set
 
 ## Pretrained models
 ### Pretrained GAN checkpoints
@@ -44,6 +58,10 @@ We use the following pretrained ReStyle checkpoints:
 
 ### Pretrained Label Generators
 Coming soon!
+
+### GAN inversion latent codes
+- Faces: Latent codes obtained via ReStyle and optimization refinement are located [here](https://drive.google.com/file/d/1O-VJhP5N5Rd3gabQ6OfS-ALlE2lgesRV/view?usp=sharing). 
+    - :warning: These latent codes follow the number ordering of the HandsOff dataset split. See the Faces section in [Data splits](#data-splits) for our ordering.
 
 ## Training
 :warning: Training HandsOff is RAM consuming, as all hypercolumn representations are kept in memory
