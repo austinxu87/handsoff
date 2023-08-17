@@ -13,7 +13,7 @@ The code is based on [EditGAN](https://github.com/nv-tlabs/editGAN_release).
 
 ## Requirements
 - **Note:** use `--recurse-submodules` when clone
-- Alternatively, clone with `--recurse-submodules` and then run `git submodule update --init`
+- Alternatively, if you cloned without `--recurse-submodules`, run `git submodule update --init`
 - Code is tested with CUDA 10.0 toolkit with PyTorch==1.3.1
 - To set up conda environment:
 ```

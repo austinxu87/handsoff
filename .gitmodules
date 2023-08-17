@@ -1,0 +1,3 @@
+[submodule "restyle-encoder"]
+	path = restyle-encoder
+	url = https://github.com/yuval-alaluf/restyle-encoder.git
